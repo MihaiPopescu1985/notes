@@ -1,0 +1,10 @@
+Three steps:
+- parsing
+- transformation
+- code generation
+
+Parsing: 
+- lexical analysis
+  - split the code into tokens
+- syntactic analysis
+  - construct the AST (abstract syntax tree)
