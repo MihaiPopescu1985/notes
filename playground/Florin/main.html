@@ -7,16 +7,17 @@
 
     <script type="text/javascript" src="exercise.js"></script>
 
-    <title>Document</title>
+    <title>Learning how to code</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body onload="init_exercise()">
-    <p>let exercise = `# Generator
+        <h1> exercise = `# Generator</h1>
         def reverse(data): # declare the reverse function
             for index in range(len(data)-1, -1, -1): # iterate backwards
                 yield data[index] # return the value and interrupt execution
         my_list = [1, 2, 3] # declare a list
         current = reverse(my_list) # get the current element
         print(next(current)) # 3
-        print(next(current)) # 2`.trimStart().trimEnd().split('\n');</p>
+        print(next(current)) # 2`.trimStart().trimEnd().split('\n');
 </body>
 </html>
