@@ -1,4 +1,11 @@
-# Declare an integer and assign the value 5
+const PYTHON_SYNTAX_TUTORIAL = `
+# Declare a string by escaping the single quote
+my_string = 'doesn\'t'
+
+# Declare a comment
+# Characters after # will be ignored by python
+
+# Declare an integer and assign the value of 5
 my_int = 5 # 5
 
 # Using add operator
@@ -26,7 +33,7 @@ my_int = 5 ** 2 # 5 squared equals 25
 my_other_float = my_int / my_float
 
 # Declare a string in single quotes
-my_string = 'spam eggs'
+my_string = 'spam eggs' # string in single quote
 
 # Declare a string by escaping the single quote
 my_string = 'doesn\'t'
@@ -587,3 +594,4 @@ my_list = [1, 2, 3] # declare a list
 current = reverse(my_list) # get the current element
 print(next(current)) # 3
 print(next(current)) # 2
+`
