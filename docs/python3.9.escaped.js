@@ -1,69 +1,66 @@
 const PYTHON_SYNTAX_TUTORIAL = `
-# Declare a string by escaping the single quote
-my_string = 'doesn\'t'
-
 # Declare a comment
-# Characters after # will be ignored by python
+Characters after # will be ignored by python
 
 # Declare an integer and assign the value of 5
-my_int = 5 # 5
+my_int = 5 # my_int will have the value 5
 
 # Using add operator
-my_int = 2 + 2 # 4
+my_int = 2 + 2 # my_int will have the value 4
 
 # Operator precedence
-my_int = 50 - 5*6 # 50 - 30 = 20
+my_int = 50 - 5*6 # multiplication before substraction
 
 # Grouping
-my_int = (50 - 5) * 6 # 45 * 6 = 270
+my_int = (50 - 5) * 6 # parentheses before multiplication
 
 # Division will return a float
-my_float = 8 / 5 # 1.6
+my_float = 8 / 5 # my_float will have the value 1.6
 
 # Floor division
-my_float = 8 // 5 # 1
+my_float = 8 // 5 # my_float will have the value 1
 
 # Calculate reminder
-my_int = 8 % 5 # 3
+my_int = 8 % 5 # my_int will have the value 3
 
 # Calculate the power
-my_int = 5 ** 2 # 5 squared equals 25
+my_int = 5 ** 2 # my_int will have the value of 5 squared
 
 # Use operator on existing variables
-my_other_float = my_int / my_float
+new_float = my_int / my_float # new_float will be my_int divided by my_float
 
 # Declare a string in single quotes
-my_string = 'spam eggs' # string in single quote
+my_string = 'spam eggs' # declare a string in single quotes
 
 # Declare a string by escaping the single quote
-my_string = 'doesn\'t'
+my_string = 'doesn\\'t' # 'doesn\\'t'
 
 # Using double quotes
-my_string = "doesn't"
+my_string = "doesn't" # "doesn't"
 
 # Double quotes in single quotes
-my_string = '"Yes," they said.'
+my_string = '"Yes," they said.' # '"Yes," they said.'
 
 # Escaping double quotes
-my_string = "\"Yes,\" they said."
+my_string = "\\"Yes,\\" they said." # "\\"Yes,\\" they said."
 
 # Escaping single quotes
-my_string = '"Isn\'t," they said.'
+my_string = '"Isn\\'t," they said.' # '"Isn\\'t," they said.'
 
 # Assign the raw value of the string
-my_string = r'C:\my\path'
+my_string = r'C:\\my\\path' # C:\\my\\path
 
 # Showing a value of a variable
-print(my_string)
+print(my_string) # will output the value of my_string
 
-# Multiline string
-my_string = """\
+# Declare a string on multiple lines
+my_string = """\\
     first line
     second line
     """
 
 # Multiline string in single quotes
-my_string = '''\
+my_string = '''\\
     first line
     second line
     '''
@@ -80,7 +77,7 @@ my_string = ('My'
 ' in one line.') # My long text in one line
 
 # Concatenate a variable and a string literal
-my_other_string = my_string + " Adding value to the initial string"
+new_string = my_string + " Adding value to the initial string"
 
 # Access the first character of a string
 my_string[0]
@@ -440,7 +437,7 @@ file.closed # check if the file was closed
 file.readline() # read file line by line
 for line in file: # iterate over file lines
     print(line, end='') # print each line
-file.write('This is a test\n') # write to file, return number of characters written
+file.write('This is a test\\n') # write to file, return number of characters written
 file = open('workfile.txt', 'rb+') # open file in reading and writing binary mode
 file.write(b'0123456789abcdef') # write bytes to file
 file.seek(5) # go to the sixth byte in the file

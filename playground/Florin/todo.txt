@@ -1,2 +1,0 @@
-TODO
-sa ordonez textul pe fiecare rand in html -done
