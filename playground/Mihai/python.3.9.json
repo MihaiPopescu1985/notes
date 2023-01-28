@@ -1,0 +1,19 @@
+{
+    "exercises":[
+        {
+            "title":"Introducing the integer data type",
+            "description":"Declare an integer with the name 'my_integer', assign the value of 5 and print it",
+            "content":"my_integer = 5\nprint(my_integer)"
+        },
+        {
+            "title":"Add two integers",
+            "description":"Declare two integers named 'first_op' and 'second_op' with the values of 5 and 6. Print the sum of the two numbers.",
+            "content":"first_op = 5\nsecond_op = 6\nprint(first_op + second_op)"
+        },
+        {
+            "title":"Title",
+            "description":"description",
+            "content":""
+        }
+    ]
+}
