@@ -161,7 +161,7 @@ function _isSolution() {
 }
 
 function _getWordHtml(word) {
-   return '<pre class="m-1 p-1 border" style="cursor: pointer;" onclick="addWord(&quot;' + word + '&quot;)">' + word + '</pre>';
+   return '<pre style="cursor: pointer;" onclick="addWord(&quot;' + word + '&quot;)">' + word + '</pre>';
 }
 
 function shuffle(array) {

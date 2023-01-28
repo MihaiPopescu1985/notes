@@ -1,0 +1,62 @@
+body {
+    margin: 0px;
+}
+
+#exercise_container {
+    background-color: antiquewhite;
+    position: relative;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+#exercise_title {
+    margin: 0px;
+    padding: 0px;
+}
+
+#exercise_area {
+    margin: 0em;
+    padding: 0.5em;
+    min-height: 10em;
+    overflow: auto;
+    display: flex;
+    background-color: whitesmoke;
+    align-items: end;
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: lightgray;
+}
+
+#code_area {
+    margin: 0px;
+    padding: 0px;
+}
+
+#comment_area {
+    margin: 0px;
+    padding: 0px;
+}
+
+#word_list {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    min-height: 5em;
+    align-items: end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+#word_list pre {
+    margin: 0.1em 0.2em 0.1em 0.2em;
+    padding: 0.5em;
+    border-color: #dee2e6;
+    border-style: solid;
+    border-width: 0.1em;
+}
+
+#buttons_area {
+    margin: 1em 0em 0em 0em;
+    padding: 0px;
+}
