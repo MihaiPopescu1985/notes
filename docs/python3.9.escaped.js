@@ -1,6 +1,6 @@
 const PYTHON_SYNTAX_TUTORIAL = `
 # Declare a comment
-Characters after Characters after Characters after Characters after Characters after Characters after # will be ignored by python
+Characters after # will be ignored by python
 
 # Declare an integer and assign the value of 5
 my_int = 5 # my_int will have the value 5
