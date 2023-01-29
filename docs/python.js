@@ -1,7 +1,7 @@
 // Constants
 const PYTHON_KEYWORDS = ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'];
 
-const WORD_PLACEHOLDER = '[***]';
+const WORD_PLACEHOLDER = '⁎⁎⁎';
 const EXERCISE_DELIMITER = '\n\n';
 
 const HTML_EXERCISE_CONTAINER = 'exercise_container';
@@ -43,7 +43,7 @@ function initExercise() {
 }
 
 function showNextExercise() {
-  if (current_exercise_index < exercises.length-1) {
+  if (current_exercise_index < exercises.length - 1) {
     current_exercise_index++;
     startExercise();
   }
@@ -97,12 +97,12 @@ function _showNextLine() {
 
   if (next_line !== undefined) {
     current_line = _splitExerciseLine(next_line);
-    
+
     _setCodeArea();
     _setCommentArea();
 
     if (_isSolution()) {
-      next_exercise_btn.removeAttribute("disabled");
+      _showNextLine();
     }
     _showWords();
   } else { // there are no more lines in the exercise, so we can go to the next one
@@ -111,8 +111,8 @@ function _showNextLine() {
 }
 
 function _setCodeArea() {
-  
-  if (code_area.innerText.length === 0) { 
+
+  if (code_area.innerText.length === 0) {
     code_area.innerText = current_line.obscured_code;
   } else {
     code_area.innerText = code_area.innerText + "\n" + current_line.obscured_code;
@@ -120,7 +120,7 @@ function _setCodeArea() {
 }
 
 function _setCommentArea() {
-  
+
   if (comment_area.innerText.length === 0) {
     comment_area.innerText = current_line.comment;
   } else {
@@ -142,7 +142,7 @@ function _showWords() {
 function addWord(word) {
   code_area.innerText = code_area.innerText.replace(WORD_PLACEHOLDER, word);
   word_list_area.innerHTML = word_list_area.innerHTML.replace(_getWordHtml(word), '');
-  
+
   if (_isSolution()) {
     _showNextLine();
   }
@@ -152,7 +152,7 @@ function _isSolution() {
   try {
     let want = current_line.target_code;
     let have = code_area.innerText.split('\n').pop();
-    
+
     return want === have;
 
   } catch (TypeError) {
@@ -161,7 +161,7 @@ function _isSolution() {
 }
 
 function _getWordHtml(word) {
-   return '<pre style="cursor: pointer;" onclick="addWord(&quot;' + word + '&quot;)">' + word + '</pre>';
+  return '<pre style="cursor: pointer;" onclick="addWord(&quot;' + word + '&quot;)">' + word + '</pre>';
 }
 
 function shuffle(array) {
@@ -178,12 +178,12 @@ function _splitExerciseLine(line) {
   let comment = '';
   let target_code = '';
   let obscured_code = '';
-  
+
   let length = line.length;
   for (i = 0; i < length; i++) {
     let token = '';
     let is_string = false;
-    
+
     while (i < length && _isWord(line[i])) {
       is_string = true;
       token += line[i];
@@ -199,7 +199,7 @@ function _splitExerciseLine(line) {
       target_code = line.slice(0, i);
       break;
     }
-    if (i == length-1) {
+    if (i == length - 1) {
       target_code = line;
     }
   }

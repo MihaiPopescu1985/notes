@@ -1,59 +1,64 @@
 const PYTHON_SYNTAX_TUTORIAL = `
-# Declare a comment
-Characters after # will be ignored by python
+# Use a comment
+Characters after # are comments and are ignored by python
 
-# Declare an integer and assign the value of 5
+# Declare a variable and assign the value 5
 my_int = 5 # my_int will have the value 5
 
-# Using add operator
+# Using the add (+) operator
 my_int = 2 + 2 # my_int will have the value 4
 
 # Operator precedence
-my_int = 50 - 5*6 # multiplication before substraction
+my_int = 50 - 5*6 # multiplication (*) before subtraction (-)
 
-# Grouping
+# Grouping operands
 my_int = (50 - 5) * 6 # parentheses before multiplication
 
 # Division will return a float
 my_float = 8 / 5 # my_float will have the value 1.6
 
-# Floor division
+# Using the floor (//) operator
 my_float = 8 // 5 # my_float will have the value 1
 
-# Calculate reminder
+# Using the modulo (%) operator
 my_int = 8 % 5 # my_int will have the value 3
 
-# Calculate the power
+# Exponentiation
 my_int = 5 ** 2 # my_int will have the value of 5 squared
 
-# Use operator on existing variables
+# Use an operator on existing variables
+my_int = 5 # declare the my_int variable
+my_float = 3 # declare the my_float variable
 new_float = my_int / my_float # new_float will be my_int divided by my_float
 
-# Declare a string in single quotes
-my_string = 'spam eggs' # declare a string in single quotes
+# Declare a string variable in single quotes
+my_string = 'Hello world' # 'Hello world'
 
-# Declare a string by escaping the single quote
+# Declare a string variable in double quotes
+my_string = "Hello world" # "Hello world"
+
+# Escaping a single quote in single quotes
 my_string = 'doesn\\'t' # 'doesn\\'t'
 
-# Using double quotes
+# Using a single quote in double quotes
 my_string = "doesn't" # "doesn't"
 
-# Double quotes in single quotes
+# Using double quotes in single quotes
 my_string = '"Yes," they said.' # '"Yes," they said.'
 
-# Escaping double quotes
+# Escaping double quotes in double quotes
 my_string = "\\"Yes,\\" they said." # "\\"Yes,\\" they said."
 
-# Escaping single quotes
+# Escaping single quotes in double quotes
 my_string = '"Isn\\'t," they said.' # '"Isn\\'t," they said.'
 
-# Assign the raw value of the string
+# Assign the raw value (r) of the string to a variable
 my_string = r'C:\\my\\path' # C:\\my\\path
 
-# Showing a value of a variable
+# Show the value of a variable
 print(my_string) # will output the value of my_string
 
-# Declare a string on multiple lines
+# Multiline string in double quotes
 my_string = """\\
     first line
     second line
@@ -65,197 +70,155 @@ my_string = '''\\
     second line
     '''
 
-# Concateneting strings
+# Concateneting strings 
+my_string = "Mi" + "ssi" + "ssi" + "ppi" # Mississippi
+
+# Make use of the multiplication (*) operator
 my_string = "Mi" + 2 * "ssi" + "ppi" # Mississippi
 
-# Concatenate string without using the '+' sign
+# Concatenate string without using the + sign
 my_string = "Py" "thon" # Python
 
 # Declare a long one line text
-my_string = ('My'
+my_string = ('My' # My long text in one line
 ' long text'
-' in one line.') # My long text in one line
+' in one line.') 
 
 # Concatenate a variable and a string literal
-new_string = my_string + " Adding value to the initial string"
+my_string = "initial value" # initial value
+new_string = "Add value to the " + my_string # Add value to the initial value
 
 # Access the first character of a string
-my_string[0]
+my_string = "Hello world" # Hello world
+my_string[0] # H
 
 # Access the character at a certain position
-my_string[5]
+my_string = "Hello world" # Hello world
+my_string[4] # o
 
 # Access the last character
-my_string[-1]
+my_string = "Hello world" # Hello world
+my_string[-1] # d
 
 # Slice a string from the initial character
-my_string[0:5] # initial char included, the fifth char excluded
+my_string = "Hello world" # Hello world
+my_string[0:5] # Hello
 
 # Omiting initial character
-my_string[:5] # initial char included, the fifth char excluded
+my_string = "Hello world" # Hello world
+my_string[:5] # Hello
 
-# From second character to the last one
-my_string[2:-1]
+# From the sixth character to the last one
+my_string = "Hello world" # Hello world
+my_string[6:] # world
+
+# From the third character to the second to last one
+my_string = "Hello world" # Hello world
+my_string[3:-1] # lo worl
 
 # From the second last to the last one
-my_string[-2:]
+my_string = "Hello world" # Hello world
+my_string[-2:] # ld
 
-# String cannot be modified
+# A string cannot be modified
 my_string[0] = 'A' # will throw an error
 
 # Get the size of the string
-len(my_string)
+my_string = "Hello world" # Hello world
+len(my_string) # 11
 
 # Declare a list
-my_list = [1, 4, 9, 16, 25]
+my_list = [1, 2, 3, 4, 5]
 
 # Access the first element of the list
-my_list[0]
+my_list = [1, 2, 3, 4, 5]
+my_list[0] # 1
 
 # Access the last element of the list
-my_list[-1]
+my_list = [1, 2, 3, 4, 5]
+my_list[-1] # 5
 
 # Slice a list
-my_list[2:3] # will return a new list
+my_list = [1, 4, 9, 17, 32]
+my_list[2:3] # [9]
 
 # Return a shallow copy of the list
-my_list[:]
+my_list = [1, 4, 9, 17, 32]
+my_list[:] # [1, 4, 9, 17, 32]
 
 # Concatenate lists
-my_list + [35, 49]
+my_list = [1, 4, 9, 17, 32]
+my_list + [35, 49] # [1, 4, 9, 17, 32, 35, 49]
 
 # Change a value
-my_list[5] = 36
+my_list = [1, 3, 3]
+my_list[1] = 2 # [1, 2, 3]
 
 # Using the append method
-my_list.append(64)
+my_list = [1, 2]
+my_list.append(3) # [1, 2, 3]
 
 # Count elements of a list
-len(my_list)
+my_list = [1, 2, 3]
+len(my_list) # 3
 
 # List of lists
 my_list = [[1, 2, 3], [4, 5, 6]]
 
 # Calculate the Fibonacci series by using the while loop
-a, b = 0, 1 # declare variables
-while a < 10: # loop
-    print(a) # shouw current value
-    a, b = b, a+b # calculate new values
+curr, next = 0, 1 # multiple variables assignment
+while curr < 10: # loop to 10
+    print(curr) # show the current value
+    curr, next = next, curr+next # calculate new values
 
 # Use the if statement to compare a number to 0
-input = int(input("Enter a number: ")) # ask for a number
-if input < 0: # if number is less than zero
+val = input("Enter a number: ") # ask for an input and assign it to val
+number = int(val) # cast val to an integer
+if number < 0: # if number is less than 0
     print('You entered a negative number') # confirm that the number is negative
-elif input == 0: # if the number is equal to zero
-    print('You entered 0') # confirm that the number is zero
-else: # if the number is not less than nor equal to zero
+elif number == 0: # if the number is equal to 0
+    print('You entered 0') # confirm that the number is 0
+else:
     print('You entered a positive number') # confirm that the number is positive
 
 # Use the for statement to iterate over a list
-words = ['cat', 'window', 'defenestrate'] # create a list
+words = ['first', 'second', 'third'] # ['first', 'second', 'third']
 for word in words: # iterate over words
     print(word) # show the current word
 
-# Iterate over a list of generated numbers
-for i in range(5): # iterate
-    print(i) # show the curent number
-
-# Show a generated list of numbers
+# Generate lists of numbers
 list(range(5, 10)) # [5, 6, 7, 8, 9]
 list(range(0, 10, 3)) # [0, 3, 6, 9]
 list(range(-10, -100, -30)) # [-10, -40, -70]
 
+# Iterate over a list of generated numbers
+for i in range(5): # iterate with the for loop through a generated list
+    print(i) # show the curent number
+
 # Iterate over a list of elements
-my_list = ['Mary', 'had', 'a', 'little', 'lamb'] # declare a list of elements
-for i in range(len(my_list)): # iterate over list
+my_list = ['Mary', 'had', 'a', 'little', 'lamb'] # ['Mary', 'had', 'a', 'little', 'lamb']
+for i in range(len(my_list)): # iterate over my_list
     print(i, my_list[i]) # print the index and the current element
 
 # Find the prime numbers in a range of numbers
-for n in range(2, 10): # iterate over a generated range of numbers
-    for x in range(2, n): # iterate from 2 to the selected number
-        if n % x == 0: # find the common factors
-            print(n , 'equals', x, '*', n//x) # show the number and it's factors (e.g. 4 equals 2 * 2)
+for n in range(2, 10): # iterate over numbers between 2 and 10
+    for x in range(2, n): # iterate from 2 to n
+        if n % x == 0: # if n is equally divided by x
+            print(n , 'equals', x, '*', n//x) # print the number and it's factors (e.g. 4 equals 2 * 2)
             break # exit the nested loop
         else: # if the number does not have common factors
             print(n, 'is a prime number') # print the message that n is prime
 
 # Find the even numbers in range
-for n in range(2, 10): # iterate over a generated list of numbers
+for n in range(2, 10): # iterate from 2 to 10
     if n % 2 == 0: # if the current number is divisible by 2
-        print("Found an even number", n) # print the message that we found an even number
+        print("Found the even number", n) # print the message that we found an even number
         continue # continue with the next number and skip the next statement
-    print("Found an odd number", n) # print the message that the number is odd
-
-# Declare a class that does nothing
-class MyEmptyClass: # declare the class
-    pass # do nothing
+    print("Found the odd number", n) # print the message that the number is odd
 
 # Declare a function that does nothing
-def my_function(*args): # declare the function
+def my_function(*arguments): # declare a function that receives arguments
     pass # do nothing
-
-# Create a function that calculates the Fibonacci series
-def fib(n): # declare the function
-    a, b = 0, 1 # initialize the variables
-    while a < n: # iterate over range
-        print(a, end=' ') # print the number and the space as suffix
-        a, b = b, a+b # calculate the next values
-    print() # print a new line
-fib(2000) # call the function with a value as argument
-f = fib # assign the function to a variable
-f(10) # call the variable as a function
-
-# Return the Fibonacci series as a list
-def fib2(n): # declare the function
-    result = [] # declare a list to be returned
-    a, b = 0, 1 # initialize the variables
-    while a < n: # iterate over range
-        result.append(a) # append to the list
-        a, b = b, a+b # calculate the next values
-    return result # return the list
-f100 = fib2(100) # assign to a variable the list that the function creates
-
-# Use default arguments in a function
-def print_number(n=10): # declare the function
-    print(n) # print parameter
-print_number() # call function with default argument (will print 10)
-print_number(5) # call function with a specific argument (will print 5)
-
-# Appending to a list on subsequent calls
-def append_to(num, my_list=[]): # declare a function that receives a number and defaults an empty list
-    my_list.append(num) # append the passed parameter to the list
-    return my_list # return the list
-print(append_to(1)) # will print [1]
-print(append_to(2)) # WARNING: will print [1, 2]
-print(append_to(3)) # WARNING: will print [1, 2, 3]
-
-# Avoid appending on subsequent calls by reseting the list
-def append_to2(num, my_list=None): # declare a function that receives a number and defaults a null list
-    if my_list is None: # if the list is null
-        my_list = [] # initialize an empty list
-    my_list.append(num) # append the parameter to the list
-    return my_list # return the list
-append_to2(1) # will print [1]
-append_to2(2) # will print [2]
-append_to2(3) # will print [3]
-
-# Passing keyward arguments to a function
-def about_me(name, age=18, eyes_color="blue"): # declare a function with positional arguments
-    print(f"My name is {name}, I'm {age} years old, and my eyes are {eyes_color}.") # print details
-about_me("Mike") # My name is Mike, I'm 18 years old, and my eyes are blue.
-about_me("Mike", 25, eyes_color="brown") # My name is Mike, I'm 25 years old, and my eyes are brown.
-
-# Function with a list as parameter
-def print_list_elements(*elements): # declare the function that receives a list as argument
-    for el in elements: # iterate over the list
-        print(el) # print the element
-print_list_elements(1,2,3) # will output 1, 2, 3
-
-# Function with a dictionary as parameter
-def print_dictionary(**keywords): # declare a function with a dictionary as parameter
-    for k in keywords: # iterate
-        print(f"The key is {k} and the value is {keywords[k]}") # print keys and values
-print_dictionary(a=1, b=2) # will print The key is a and the value is 1 Thekey is b and the value is 2
 
 # Function with standard argument
 def standard_arg(arg): # declare a function that receive a standard argument
@@ -275,7 +238,71 @@ def kwd_only_arg(*, arg): # declare a function that receive a keyword argument
 kwd_only_arg(2) # will throw an error
 kwd_only_arg(arg=2) # will print 2
 
-# Use lambda
+# Create a function that calculates the Fibonacci series
+def fib(n): # declare the function that receives n as argument
+    first, second = 0, 1 # initialize the variables
+    while first < n: # while first is less than n
+        print(first, end=' ') # print the first number and the empty space as suffix
+        first, second = second, first+second # calculate and assign the next values
+    print() # print a new line
+fib(2000) # call the function with a value as argument
+f = fib # assign the function to a variable
+f(10) # call the variable as a function
+
+# Return the Fibonacci series as a list
+def fib_as_list(n): # declare the function that receives n as argument
+    result = [] # declare a list to be returned
+    first, second = 0, 1 # initialize the variables
+    while first < n: # while first is less than n
+        result.append(first) # append the number to the list
+        first, second = second, first+second # calculate the next values
+    return result # return the list
+f100 = fib_as_list(100) # assign to a variable the list that the function returns
+
+# Use default arguments in a function
+def print_number(n=10): # declare the function with default value as argument
+    print(n) # print parameter
+print_number() # call function with default argument (will print 10)
+print_number(5) # call function with a specific argument (will print 5)
+
+# Appending to a list on subsequent calls
+def append_to(num, my_list=[]): # declare a function that receives a number and defaults an empty list
+    my_list.append(num) # append the passed parameter to the list
+    return my_list # return the list
+print(append_to(1)) # will print [1]
+print(append_to(2)) # WARNING: will print [1, 2]
+print(append_to(3)) # WARNING: will print [1, 2, 3]
+
+# Avoid appending on subsequent calls by reseting the list
+def append_to(num, my_list=None): # declare a function that receives a number and defaults a null list
+    if my_list is None: # if the list is null
+        my_list = [] # initialize an empty list
+    my_list.append(num) # append the parameter to the list
+    return my_list # return the list
+append_to(1) # will print [1]
+append_to(2) # will print [2]
+append_to(3) # will print [3]
+
+# Passing keyward arguments to a function
+def about_me(name, age=18, eyes_color="blue"): # declare a function with positional arguments
+    print(f"My name is {name}, I'm {age} years old, and my eyes are {eyes_color}.") # f"My name is {name}, I'm {age} years old, and my eyes are {eyes_color}."
+about_me("Mike") # My name is Mike, I'm 18 years old, and my eyes are blue.
+about_me("Mike", 25, eyes_color="brown") # My name is Mike, I'm 25 years old, and my eyes are brown.
+
+# Function with a list as parameter
+def print_list_elements(*elements): # declare the function that receives a list as positional argument
+    for el in elements: # iterate over the list
+        print(el) # print the element
+print_list_elements(1,2,3) # will output 1, 2, 3
+
+# Function with a dictionary or keywords as parameter
+def print_dictionary(**keywords): # declare a function with a dictionary or keywords as parameter
+    for k in keywords: # iterate over keys
+        print(f"The key is {k} and the value is {keywords[k]}. ") # (format print) The key is {k} and the value is {keywords[k]}
+print_dictionary(a=1) # The key is a and the value is 1
+print_dictionary(a=1, b=2) # The key is a and the value is 1. The key is b and the value is 2.  
+
+# Lambda
 def make_incrementor(n): # declare a function
     return lambda x: x + n # return rambda to increment x by n
 incr = make_incrementor(42) # define a variable and se the value of lambda
@@ -289,9 +316,9 @@ pairs # [(2, 'two'), (3, 'three'), (4, 'four')]
 
 # Use convention to document a function
 def my_function(): # declare a function
-    """First line must start with capital letter and end with dot.
-    
-    On multiline comment, the secont one must be empty.
+    """First line must start with capital letter and end with dot. # First line must start with capital letter and end with dot.
+    # empty line
+    On multiline comment, the second one must be empty. # On multiline comment, the secont one must be empty.
     """
     pass # the function body
 print(my_function.__doc__) # print function documentation
@@ -304,7 +331,7 @@ my_function("arg") # Annotations: {'arg': <class 'str'>, 'return': <class 'str'>
 
 # Working with lists
 numbers = [0, 2, 2] # declare a list
-numbers.count(2) # 2
+numbers.count(2) # count the occurance of 2
 numbers.append(1) # [0, 2, 2, 1]
 new_numbers = numbers.copy() # shallow copy existing numbers to a new variable
 numbers.extend([4]) # [0, 2, 2, 1, 4]
@@ -325,27 +352,27 @@ stack.pop() # [3, 4, 5, 6]
 
 # Queue
 from collections import deque # import deque
-queue = deque(["Eric", "John", "Michael"]) # create a deque
-queue.append("Terry") # ['Eric', 'John', 'Michael', 'Terry']
-queue.popleft() # ['John', 'Michael', 'Terry']
+queue = deque(["one", "two", "three"]) # create a deque
+queue.append("four") # ['one', 'two', 'three', 'four']
+queue.popleft() # ['two', 'three', 'four']
 
 # List comprehensions
 squares = [] # declare an empty list
 for x in range(10): # iterate over the first 10 numbers
     squares.append(x**2) # append the squared number to list
-squares = list(map(lambda x: x**2, range(10))) # assign a list by executing a lambda function in a map
-squares = [x**2 for x in range(10)] # a list fomed by iterating over the range of the first 10 numbers
+squares = list(map(lambda x: x**2, range(10))) # squares = list(map(lambda x: x**2, range(10)))
+squares = [x**2 for x in range(10)] # squares = [x**2 for x in range(10)]
 vec = [-4, -2, 0, 2, 4] # create a new list
-[x*2 for x in vec] # [-8, -4, 0, 4, 8]
-[x for x in vec if x >= 0] # [0, 2, 4]
-[abs(x) for x in vec] # [4, 2, 0, 2, 4]
-fresh_fruit = ['   banana', '   loganberry ', 'passion fruit  '] # declare a new list
-[fruit.strip() for fruit in fresh_fruit] # ['banana', 'loganberry', 'passion fruit']
-[(x, x**2) for x in range(6)] # [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+[x*2 for x in vec] # [x*2 for x in vec] will output [-8, -4, 0, 4, 8]
+[x for x in vec if x >= 0] # [x for x in vec if x >= 0] will output [0, 2, 4]
+[abs(x) for x in vec] # [abs(x) for x in vec] will output [4, 2, 0, 2, 4]
+fresh_fruit = ['   banana', '   loganberry ', 'passion fruit  '] # ['   banana', '   loganberry ', 'passion fruit  ']
+[fruit.strip() for fruit in fresh_fruit] # [fruit.strip() for fruit in fresh_fruit] -> ['banana', 'loganberry', 'passion fruit']
+[(x, x**2) for x in range(6)] # [(x, x**2) for x in range(6)] -> [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
 
 # Nested list comprehensions
 matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]] # create nested lists
-[[row[i] for row in matrix] for i in range(4)] # [[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
+[[row[i] for row in matrix] for i in range(4)] # [[row[i] for row in matrix] for i in range(4)] -> [[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
 
 # Del
 my_list = [1, 2, 3] # declare a list
@@ -353,23 +380,23 @@ del my_list[0] # [2, 3]
 del my_list # delete the entire list
 
 # Tuple
-my_tuple = 12345, 54321, 'hello!' # declare a tuple
+my_tuple = 12345, 54321, 'hello!' # declare a tuple -> 12345, 54321, 'hello!'
 nested_tuple = my_tuple, (1, 2, 3, 4, 5) # ((12345, 54321, 'hello!'), (1, 2, 3, 4, 5))
-my_tuple[0] = 88888 # throw an error because tuples are immutable
+my_tuple[0] = 88888 # will throw an error because tuples are immutable
 empty_tuple = () # declare an empty tuple
 single_element_tuple = 'hello', # a tuple with a single element
 
 # Set 
-fruits = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'} # declare a set
-fruits # {'banana', 'apple', 'orange', 'pear'}
-'orange' in fruits # True
+fruits = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'} # declare a set -> {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+fruits # no duplicate elements -> {'banana', 'apple', 'orange', 'pear'}
+'orange' in fruits # test existing element in set
 a = set('abracadabra') # {'a', 'r', 'b', 'c', 'd'}
 b = set('alacazam') # {'c', 'l', 'm', 'z', 'a'}
 a - b # {'r', 'd', 'b'}
 a | b # {'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'}
 a & b # {'a', 'c'}
 a ^ b # {'r', 'd', 'b', 'm', 'z', 'l'}
-a = {x for x in 'abracadabra' if x not in 'abc'} # {'r', 'd'}
+a = {x for x in 'abracadabra' if x not in 'abc'} # {x for x in 'abracadabra' if x not in 'abc'} -> {'r', 'd'}
 
 # Dictionary
 ascii = {'a': 97, 'b': 98} # declare a dictionary
@@ -422,12 +449,16 @@ print('{0} and {1}'.format('spam', 'eggs')) # spam and eggs
 print('{1} and {0}'.format('spam', 'eggs')) # eggs and spam
 print('This {food} is {adj}.'.format(food='spam', adj='horrible')) # This spam is horrible
 print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred', other='Georg')) # The story of Bill, Manfred, and Georg.
-table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678} # declare a dictionary
-print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; ''Dcab: {0[Dcab]:d}'.format(table)) # Jack: 4098; Sjoerd: 4127; Dcab: 8637678
-print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table)) # Jack: 4098; Sjoerd: 4127; Dcab: 8637678
+ascii = {'a': 97, 'b': 98, 'c': 99} # declare a dictionary
+print('a: {0[a]:d};'.format(ascii)) # a: 97;
+print('a: {a:d}; b: {b:d}; c: {c:d}'.format(**ascii)) # a: 97; b: 98; c: 99
 '12'.zfill(5) # '00012
 '-3,14'.zfill(7) # -003.14
 '3.14159265359'.zfill(5) # 3.14159265359
+
+# Declare a class that does nothing
+class MyEmptyClass: # declare the class
+    pass # do nothing
 
 # Files
 file = open('workfile.txt', 'w', encoding="utf-8") # open the workfile.txt file in write mode
@@ -456,7 +487,7 @@ while True: # infinite loop
         x = int(input("Please enter a number: ")) # ask for a number
         break # exit loop
     except ValueError: # catch exception
-        print("Oops! That was no valid number. Try again...") # print an error message
+        print("Oops! That number was not valid. Try again...") # print an error message
 import sys # use sys
 try: # try
     f = open('myfile.txt') # open myfile.txt file
@@ -522,7 +553,7 @@ print('In global scope:', spam) # In global scope: global spam
 
 # Class
 class MyClass: # declare a class
-    """A simple example class.""" # breaf class description
+    """A simple class.""" # breaf class description
     def my_class_function(self): # declare a class function
         return 'hello from my class function' # return a string
 my_class = MyClass() # create an object of type MyClass
