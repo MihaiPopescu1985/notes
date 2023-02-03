@@ -13,6 +13,9 @@ const HTML_WORD_LIST = 'word_list';
 const HTML_BTN_PREV_EXERCISE = 'prev_exercise';
 const HTML_BTN_NEXT_EXERCISE = 'next_exercise';
 
+const MAX_PROGRESS = "max_progress";
+const CURRENT_PROGRESS = "current_progress";
+
 // HTML document variables
 var title_area;
 var exercise_area;
@@ -24,13 +27,33 @@ var next_exercise_btn;
 
 // State variables
 var exercises = PYTHON_SYNTAX_TUTORIAL.trimStart().trimEnd().split(EXERCISE_DELIMITER);
-var current_exercise_index = -1;
-var current_exercise;
+var current_exercise_index = 0;
+var current_exercise; // the exercise from exercises
 var line_generator;
 var current_line;
+var max_progress = 0; // the highest exercise completed
 
 
 function initExercise() {
+  _getHTML();
+  _getStoredProgress();
+  startExercise();
+}
+
+function _getStoredProgress() {
+  let max_prog = localStorage.getItem(MAX_PROGRESS);
+  let curr_prog = localStorage.getItem(CURRENT_PROGRESS);
+
+  if (max_prog !== null) {
+    max_progress = max_prog;
+  }
+
+  if (curr_prog !== null) {
+    current_exercise_index = curr_prog;
+  }
+}
+
+function _getHTML() {
   title_area = document.getElementById(HTML_EXERCISE_TITLE);
   exercise_area = document.getElementById(HTML_EXERCISE_AREA);
   code_area = document.getElementById(HTML_CODE_AREA);
@@ -38,26 +61,42 @@ function initExercise() {
   word_list_area = document.getElementById(HTML_WORD_LIST);
   prev_exercise_btn = document.getElementById(HTML_BTN_PREV_EXERCISE);
   next_exercise_btn = document.getElementById(HTML_BTN_NEXT_EXERCISE);
-
-  showNextExercise();
 }
 
 function showNextExercise() {
-  if (current_exercise_index < exercises.length - 1) {
-    current_exercise_index++;
-    startExercise();
-  }
+  _changeCurrentExercise(1)
+  startExercise();
 }
 
 function showPrevExercise() {
-  if (current_exercise_index > 0) {
+  _changeCurrentExercise(-1);
+  startExercise();
+}
+
+function _changeCurrentExercise(value) {
+
+  let old_max_progress = localStorage.getItem(MAX_PROGRESS);
+  let is_last_exercise = current_exercise_index >= exercises.length - 1;
+
+  if ((value > 0) && !is_last_exercise) {
+
+    current_exercise_index++;
+    localStorage.setItem(CURRENT_PROGRESS, current_exercise_index);
+
+    if (old_max_progress < current_exercise_index) {
+      localStorage.setItem(MAX_PROGRESS, current_exercise_index);
+    }
+  }
+
+  if ((value < 0) && (current_exercise_index > 0)){
     current_exercise_index--;
-    startExercise();
+    localStorage.setItem(CURRENT_PROGRESS, current_exercise_index);
   }
 }
 
 function startExercise() {
   _resetAreas();
+  _disableButtonNext();
   _loadExercise();
 
   _showTitle();
@@ -70,7 +109,16 @@ function _resetAreas() {
   code_area.innerText = "";
   comment_area.innerText = "";
   word_list_area.innerHTML = "";
-  next_exercise_btn.setAttribute("disabled", "");
+}
+
+function _disableButtonNext() {
+  let max_prog = localStorage.getItem(MAX_PROGRESS);
+
+  if (current_exercise_index >= max_prog) {
+    next_exercise_btn.setAttribute("disabled", "");
+  } else {
+    next_exercise_btn.removeAttribute("disabled");
+  }
 }
 
 function _loadExercise() {
@@ -111,7 +159,6 @@ function _showNextLine() {
 }
 
 function _setCodeArea() {
-
   if (code_area.innerText.length === 0) {
     code_area.innerText = current_line.obscured_code;
   } else {
@@ -120,12 +167,7 @@ function _setCodeArea() {
 }
 
 function _setCommentArea() {
-
-  if (comment_area.innerText.length === 0) {
-    comment_area.innerText = current_line.comment;
-  } else {
-    comment_area.innerText = comment_area.innerText + "\n" + current_line.comment;
-  }
+  comment_area.innerText = comment_area.innerText + current_line.comment + "\n";
 }
 
 function _showWords() {
