@@ -73,3 +73,30 @@ body {
     margin: 1em 0em 0em 0em;
     padding: 0em;
 }
+
+#about_btn {
+    float: right;
+}
+
+#about_content {
+    margin: auto;
+    text-align: center;
+    padding: 2em;
+    background-color: antiquewhite;
+    display: none;
+}
+
+#about_title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+#about_title > h3 {
+    margin: 0em;
+}
+
+#close_about_content {
+    float: right;
+}

@@ -10,6 +10,7 @@
     <!--Scripts: order matter-->
     <script type="text/javascript" src="python3.9.escaped.js"></script>
     <script type="text/javascript" src="python.js"></script>
+    <script type="text/javascript" src="about.js"></script>
 
     <title>Python syntax tutorial</title>
 </head>
@@ -24,7 +25,22 @@
             <button id="prev_exercise" onclick="showPrevExercise()">Prev</button>
             <button id="next_exercise" onclick="showNextExercise()">Next</button>
             <button id="retry_exercise" onclick="startExercise()">Retry</button>
+            <button id="about_btn" onclick="openAbout()"><b>?</b></button>
         </div>
+    </div>
+    <div id="about_content" onclick="closeAbout()">
+        <div id="about_title">
+            <h3>wax-on wax-off python syntax training</h3>
+            <button id="close_about_content" onclick="closeAbout()"><b>X</b></button>
+        </div>
+        <br>
+        <p>Welcome to the fastest way to learn python syntax.</p>
+        <p>All you need to do is to tap the words in order so, that the syntax is correct.</p>
+        <p>This can be a challenge at first, but the syntax will stick into your memory with practice.</p>
+        <p>There are 91 exercises, all following the official python 3.9 documentation:<a href="https://docs.python.org/3.9/tutorial/index.html">https://docs.python.org/3.9/tutorial/index.html</a></p>
+        <p>Write an email to mike.s.app.now@gmail.com for comments or suggestions.</p>
+        <br>
+        <p>Have fun! :)</p>
     </div>
 </body>
 </html>
