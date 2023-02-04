@@ -37,6 +37,10 @@ var max_progress = 0; // the highest exercise completed
 function initExercise() {
   _getHTML();
   _getStoredProgress();
+
+  if (max_progress === 0) {
+    openAbout();
+  }
   startExercise();
 }
 
