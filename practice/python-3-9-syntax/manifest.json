@@ -1,0 +1,22 @@
+{
+    "name": "wax-on wax-off python syntax practice",
+    "short_name": "practice python syntax",
+    "start_url": "/practice/python-3-9-syntax/",
+    "homepage": "/practice/python-3-9-syntax/index.hml",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "media/icon2048.svg",
+            "sizes": "2048x2048",
+            "type": "image/svg",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "media/icon512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
