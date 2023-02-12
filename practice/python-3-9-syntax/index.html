@@ -6,15 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--PWA-->
+    <script type="text/javascript" src="service_worker.js"></script>
+
     <meta name="theme-color" content="#ffffff">
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="media/icon2048.svg" type="image/x-icon">
     <link rel="apple-touch-icon" href="media/icon2048.svg">
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js')
-                .then(function () { console.log("Service worker registered"); });
-        }
+        // Don't register the service worker
+        // until the page has fully loaded
+        window.addEventListener('load', () => {
+            // Is service worker available?
+            if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service_worker.js').then(() => {
+                console.log('Service worker registered!');
+            }).catch((error) => {
+                console.warn('Error registering service worker:');
+                console.warn(error);
+            });
+            }
+        });
     </script>
     <!---->
 

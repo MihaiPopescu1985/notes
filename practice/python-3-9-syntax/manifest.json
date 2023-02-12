@@ -1,6 +1,8 @@
 {
     "name": "wax-on wax-off python syntax practice",
     "short_name": "practice python syntax",
+    "id": "/wowotraining.com/practice/python-3-9-syntax/",
+    "description": "The easiest way to practice the python syntax.",
     "start_url": "./",
     "homepage": "./index.html",
     "background_color": "#ffffff",
@@ -11,12 +13,13 @@
             "src": "media/icon2048.svg",
             "sizes": "2048x2048",
             "type": "image/svg",
-            "purpose": "maskable any"
+            "purpose": "maskable"
         },
         {
             "src": "media/icon512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         }
     ]
 }
