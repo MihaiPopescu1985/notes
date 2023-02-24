@@ -12,6 +12,7 @@ const HTML_COMMENT_AREA = 'comment_area'
 const HTML_WORD_LIST = 'word_list';
 const HTML_BTN_PREV_EXERCISE = 'prev_exercise';
 const HTML_BTN_NEXT_EXERCISE = 'next_exercise';
+const HTML_NAVIGATION_AREA = 'navigator_area';
 
 const MAX_PROGRESS = "max_progress";
 const CURRENT_PROGRESS = "current_progress";
@@ -24,6 +25,7 @@ var comment_area;
 var word_list_area;
 var prev_exercise_btn;
 var next_exercise_btn;
+var navigator_area;
 
 // State variables
 var exercises = PYTHON_SYNTAX_TUTORIAL.trimStart().trimEnd().split(EXERCISE_DELIMITER);
@@ -32,16 +34,31 @@ var current_exercise; // the exercise from exercises
 var line_generator;
 var current_line;
 var max_progress = 0; // the highest exercise completed
+var titles = [];
 
 
 function initExercise() {
   _getHTML();
+  _getTitles();
+  _showTitles();
   _getStoredProgress();
 
   if (max_progress === 0) {
     openAbout();
   }
   startExercise();
+}
+
+function _showTitles() {
+  titles.forEach(title => {
+    navigator_area.innerHTML += '<pre>' + title + '</pre>'
+  })
+}
+
+function _getTitles() {
+  exercises.forEach(element => {
+    titles.push(element.split("\n")[0])
+  });
 }
 
 function _getStoredProgress() {
@@ -65,6 +82,7 @@ function _getHTML() {
   word_list_area = document.getElementById(HTML_WORD_LIST);
   prev_exercise_btn = document.getElementById(HTML_BTN_PREV_EXERCISE);
   next_exercise_btn = document.getElementById(HTML_BTN_NEXT_EXERCISE);
+  navigator_area = document.getElementById(HTML_NAVIGATION_AREA);
 }
 
 function showNextExercise() {
@@ -207,7 +225,7 @@ function _isSolution() {
 }
 
 function _getWordHtml(word) {
-  return '<pre style="cursor: pointer;" onclick="addWord(&quot;' + word + '&quot;)">' + word + '</pre>';
+  return '<pre onclick="addWord(&quot;' + word + '&quot;)">' + word + '</pre>';
 }
 
 function shuffle(array) {
