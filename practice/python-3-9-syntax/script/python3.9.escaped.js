@@ -3,60 +3,74 @@ const PYTHON_SYNTAX_TUTORIAL = `
 Characters after the # character are comments and are ignored by python
 
 # Declare a variable and assign the value 5
-my_int = 5 # my_int will have the value 5
+my_int = 5 # assign the value 5 to my_int
+print(my_int) # will print 5
 
 # Using the add (+) operator
-my_int = 2 + 2 # my_int will have the value 4
+my_int = 2 + 2 # assign the result of 2 + 2 to my_int
+print(my_int) # will print 4
 
 # Operator precedence
 my_int = 50 - 5*6 # multiplication (*) before subtraction (-)
+print(my_int) # will print 20
 
 # Grouping operands
 my_int = (50 - 5) * 6 # parentheses before multiplication
+print(my_int) # will print 270
 
 # Division will return a float
-my_float = 8 / 5 # my_float will have the value 1.6
+my_float = 8 / 5 # assign the result of 8 / 5 to my_float
+print(my_float) # will print 1.6
 
 # Using the floor (//) operator
-my_float = 8 // 5 # my_float will have the value 1
+my_float = 8 // 5 # assign the result of 8 // 5 to my_float
+print(my_float) # will print 1
 
 # Using the modulo (%) operator
-my_int = 8 % 5 # my_int will have the value 3
+my_int = 8 % 5 # assign the result of 8 % 5 to my_int
+print(my_int) # will print 3
 
 # Exponentiation
-my_int = 5 ** 2 # my_int will have the value of 5 squared
+my_int = 5 ** 2 # assign the result of 5 ** 2 to my_int
+print(my_int) # will print 25
 
 # Use an operator on existing variables
-my_int = 5 # declare the my_int variable
-my_float = 3 # declare the my_float variable
-new_float = my_int / my_float # new_float will be my_int divided by my_float
+my_int = 5 # assignt the value 5 to my_int
+my_float = 3 # assignt the value 3 to my_float
+new_float = my_int / my_float # assign the result of my_int divided by my_float to new_float
+print(new_float) # will print 1.6666666666666667
 
 # Declare a string variable in single quotes
 my_string = 'Hello world' # 'Hello world'
+print(my_string) # will print Hello world
 
 # Declare a string variable in double quotes
 my_string = "Hello world" # "Hello world"
+print(my_string) # will print Hello world
 
 # Escaping a single quote in single quotes
 my_string = 'doesn\\'t' # 'doesn\\'t'
+print(my_string) # will print doesn't
 
 # Using a single quote in double quotes
 my_string = "doesn't" # "doesn't"
+print(my_string) # will print doesn't
 
 # Using double quotes in single quotes
 my_string = '"Yes," they said.' # '"Yes," they said.'
+print(my_string) # will print "Yes," they said.
 
 # Escaping double quotes in double quotes
 my_string = "\\"Yes,\\" they said." # "\\"Yes,\\" they said."
+print(my_string) # will print "Yes," they said.
 
 # Escaping single quotes in double quotes
 my_string = '"Isn\\'t," they said.' # '"Isn\\'t," they said.'
+print(my_string) # will print "Isn't," they said.
 
 # Assign the raw value (r) of the string to a variable
 my_string = r'C:\\my\\path' # C:\\my\\path
-
-# Show the value of a variable
-print(my_string) # will output the value of my_string
+print(my_string) # will print C:\\my\\path
 
 # Multiline string in double quotes
 my_string = """\\
@@ -72,12 +86,15 @@ my_string = '''\\
 
 # Concateneting strings 
 my_string = "Mi" + "ssi" + "ssi" + "ppi" # Mississippi
+print(my_string) # will print Mississippi
 
 # Make use of the multiplication (*) operator
 my_string = "Mi" + 2 * "ssi" + "ppi" # Mississippi
+print(my_string) # will print Mississippi
 
 # Concatenate string without using the + sign
-my_string = "Py" "thon" # Python
+my_string = "Py" "thon" # 
+print(my_string) # will print Python
 
 # Declare a long one line text
 my_string = ('My' # My long text in one line
