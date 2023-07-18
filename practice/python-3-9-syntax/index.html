@@ -46,12 +46,21 @@
         </div>       
         <pre id="exercise_area"><div><code id="code_area"></code><code id="comment_area"></code></div></pre>
         <div id="word_list"></div>
-        <div id="buttons_area">
-            <button id="prev_exercise" onclick="showPrevExercise()">Prev</button>
-            <button id="next_exercise" onclick="showNextExercise()">Next</button>
-            <button id="retry_exercise" onclick="startExercise()">Retry</button>
-            <button id="show_progress" onclick="showNavigation()">Show navigation</button>
-            <button id="about_btn" onclick="openAbout()"><b>?</b></button>
+        <div id="control_area">
+            <div id="game_control_area">
+                <button id="prev_exercise" onclick="showPrevExercise()"><< Prev</button>
+                <button id="next_exercise" onclick="showNextExercise()">Next >></button>
+                <button id="retry_exercise" onclick="startExercise()">Retry</button>
+            </div>
+            <div id="menu_area">
+                <button id="show_menu" onclick="openMenu()">Menu</button>
+    
+                <div id="menu">
+                    <div id="about" onclick="openAbout()">About</div>
+                    <div id="show_progress" onclick="showProgress()">Show / Hide progress</div>
+                    <div id="reset_progress" onclick="resetProgress()">Reset progress</div>
+                </div>
+            </div>
         </div>
     </div>
     <div id="about_content" onclick="closeAbout()">
@@ -68,7 +77,7 @@
         <br>
         <p>Have fun! :)</p>
     </div>
-    <div id="navigator_area" class="navigation_area">
+    <div id="navigation_area">
     </div>
 </body>
 </html>

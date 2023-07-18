@@ -63,7 +63,7 @@ body {
 }
 
 #word_list pre,
-#navigator_area pre{
+#navigation_area pre{
     margin: 0.1em 0.2em 0.1em 0.2em;
     padding: 0.5em;
     border-color: #dee2e6;
@@ -72,13 +72,40 @@ body {
     cursor: pointer;
 }
 
-#buttons_area {
+#game_control_area {
+    display: inline-block;
     margin: 1em 0em 0em 0em;
     padding: 0em;
 }
 
-#about_btn {
+#menu_area {
+    margin: 1em 0em 0em 0em;
     float: right;
+}
+
+#show_menu {
+    float: right;
+    position: relative;
+}
+
+#menu {
+    background-color: antiquewhite;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    display: none;
+    position: absolute;
+    margin-top: 2em;
+    right: 0;
+}
+
+#menu > * {
+    white-space: nowrap;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+#about, #reset_progress {
+    background-color: wheat;
 }
 
 #about_content {
@@ -104,15 +131,15 @@ body {
     float: right;
 }
 
-#navigator_area {
+#navigation_area {
     margin: 2em;
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     align-content: space-evenly;
     flex-wrap: wrap;
 }
 
-#navigator_area pre {
+#navigation_area pre {
     margin-bottom: 1.5em;
     background-color: whitesmoke;
     font-size: larger;

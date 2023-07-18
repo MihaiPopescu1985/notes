@@ -12,7 +12,7 @@ const HTML_COMMENT_AREA       = 'comment_area'
 const HTML_WORD_LIST          = 'word_list';
 const HTML_BTN_PREV_EXERCISE  = 'prev_exercise';
 const HTML_BTN_NEXT_EXERCISE  = 'next_exercise';
-const HTML_NAVIGATION_AREA    = 'navigator_area';
+const HTML_NAVIGATION_AREA    = 'navigation_area';
 
 const MAX_PROGRESS     = "max_progress";
 const CURRENT_PROGRESS = "current_progress";
@@ -25,7 +25,7 @@ var comment_area;
 var word_list_area;
 var prev_exercise_btn;
 var next_exercise_btn;
-var navigator_area;
+var navigation_area;
 
 // State variables
 var exercises = PYTHON_SYNTAX_TUTORIAL.trimStart().trimEnd().split(EXERCISE_DELIMITER);
@@ -59,7 +59,7 @@ function _setNavigation() {
       preElement.style.cursor = "not-allowed";
       preElement.style.color  = "gray";
     }
-    navigator_area.appendChild(preElement);
+    navigation_area.appendChild(preElement);
   });
 }
 
@@ -85,7 +85,7 @@ function _getHTML() {
   word_list_area    = document.getElementById(HTML_WORD_LIST);
   prev_exercise_btn = document.getElementById(HTML_BTN_PREV_EXERCISE);
   next_exercise_btn = document.getElementById(HTML_BTN_NEXT_EXERCISE);
-  navigator_area    = document.getElementById(HTML_NAVIGATION_AREA);
+  navigation_area    = document.getElementById(HTML_NAVIGATION_AREA);
 }
 
 function showNextExercise() {
