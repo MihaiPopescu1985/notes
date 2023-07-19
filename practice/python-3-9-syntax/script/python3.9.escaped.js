@@ -1,3 +1,9 @@
+// Python exercises related constants
+const WORD_PLACEHOLDER   = '⁎⁎⁎';
+const EXERCISE_DELIMITER = '\n\n';
+
+// Python related constants
+const PYTHON_KEYWORDS        = ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'];
 const PYTHON_SYNTAX_TUTORIAL = `
 # Use a comment
 Characters after the # character are comments and are ignored by python

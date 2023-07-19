@@ -31,6 +31,7 @@ body {
     overflow: auto;
     display: flex;
     flex-direction: column-reverse;
+    font-family: 'DejaVu Serif';
 }
 
 #exercise_area > div {
@@ -102,10 +103,11 @@ body {
     white-space: nowrap;
     padding: 0.5em;
     cursor: pointer;
+    background-color: wheat;
 }
 
-#about, #reset_progress {
-    background-color: wheat;
+#menu > *:hover, #menu > *:focus {
+    background-color: antiquewhite;
 }
 
 #about_content {

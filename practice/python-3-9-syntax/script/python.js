@@ -1,120 +1,8 @@
-// Constants
-const PYTHON_KEYWORDS = ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'];
-
-const WORD_PLACEHOLDER   = '⁎⁎⁎';
-const EXERCISE_DELIMITER = '\n\n';
-
-const HTML_EXERCISE_CONTAINER = 'exercise_container';
-const HTML_EXERCISE_TITLE     = 'exercise_title';
-const HTML_EXERCISE_AREA      = 'exercise_area';
-const HTML_CODE_AREA          = 'code_area';
-const HTML_COMMENT_AREA       = 'comment_area'
-const HTML_WORD_LIST          = 'word_list';
-const HTML_BTN_PREV_EXERCISE  = 'prev_exercise';
-const HTML_BTN_NEXT_EXERCISE  = 'next_exercise';
-const HTML_NAVIGATION_AREA    = 'navigation_area';
-
-const MAX_PROGRESS     = "max_progress";
-const CURRENT_PROGRESS = "current_progress";
-
-// HTML document variables
-var title_area;
-var exercise_area;
-var code_area;
-var comment_area;
-var word_list_area;
-var prev_exercise_btn;
-var next_exercise_btn;
-var navigation_area;
-
-// State variables
-var exercises = PYTHON_SYNTAX_TUTORIAL.trimStart().trimEnd().split(EXERCISE_DELIMITER);
-var current_exercise_index = 0;
-var current_exercise; // the exercise from exercises
-var line_generator;
-var current_line;
-var max_progress = 0; // the highest exercise completed
-var titles = [];
-
-
 function initExercise() {
-  _getHTML();
-  _getTitles();
-  _getStoredProgress();
-  _setNavigation();
-
   if (max_progress === 0) {
-    openAbout();
+      openAbout();
   }
   startExercise();
-}
-
-function _setNavigation() {
-  titles.forEach((title, index) => {
-    const preElement = document.createElement('pre');
-
-    preElement.textContent = title;
-    preElement.addEventListener('click', () => jumpToExercise(index));
-    if (index > max_progress) {
-      preElement.style.cursor = "not-allowed";
-      preElement.style.color  = "gray";
-    }
-    navigation_area.appendChild(preElement);
-  });
-}
-
-function _getTitles() {
-  exercises.forEach(element => {
-    titles.push(element.split("\n")[0])
-  });
-}
-
-function _getStoredProgress() {
-  let max_prog  = localStorage.getItem(MAX_PROGRESS);
-  let curr_prog = localStorage.getItem(CURRENT_PROGRESS);
-
-  max_progress           = max_prog !== null ? Number(max_prog) : 0;
-  current_exercise_index = curr_prog !== null ? Number(curr_prog) : 0;
-}
-
-function _getHTML() {
-  title_area        = document.getElementById(HTML_EXERCISE_TITLE);
-  exercise_area     = document.getElementById(HTML_EXERCISE_AREA);
-  code_area         = document.getElementById(HTML_CODE_AREA);
-  comment_area      = document.getElementById(HTML_COMMENT_AREA);
-  word_list_area    = document.getElementById(HTML_WORD_LIST);
-  prev_exercise_btn = document.getElementById(HTML_BTN_PREV_EXERCISE);
-  next_exercise_btn = document.getElementById(HTML_BTN_NEXT_EXERCISE);
-  navigation_area    = document.getElementById(HTML_NAVIGATION_AREA);
-}
-
-function showNextExercise() {
-  let exercise_no = current_exercise_index+1
-  jumpToExercise(exercise_no)
-}
-
-function showPrevExercise() {
-  let exercise_no = current_exercise_index-1
-  jumpToExercise(exercise_no)
-}
-
-function jumpToExercise(exercise_no) {
-  _getStoredProgress()
-
-  _changeCurrentExercise(exercise_no)
-  startExercise();
-}
-
-function _changeCurrentExercise(exercise_no) {
-  if (exercise_no < 0) {
-    exercise_no = 0;
-  }
-
-  if (exercise_no > max_progress) {
-    exercise_no = max_progress
-  }
-  current_exercise_index = exercise_no;
-  localStorage.setItem(CURRENT_PROGRESS, current_exercise_index);
 }
 
 function startExercise() {
@@ -124,7 +12,32 @@ function startExercise() {
 
   _showTitle();
   _showNextLine();
-  _showWords();
+  _shuffleWords();
+}
+
+function showNextExercise() {
+  let exercise_no = current_exercise_index+1
+  _jumpToExercise(exercise_no)
+}
+
+function showPrevExercise() {
+  let exercise_no = current_exercise_index-1
+  _jumpToExercise(exercise_no)
+}
+
+function _jumpToExercise(exercise_no) {
+  _getStoredProgress()
+
+  _changeCurrentExercise(exercise_no)
+  startExercise();
+}
+
+function _getStoredProgress() {
+  let max_prog  = localStorage.getItem(MAX_PROGRESS);
+  let curr_prog = localStorage.getItem(CURRENT_PROGRESS);
+
+  max_progress           = max_prog !== null ? Number(max_prog) : 0;
+  current_exercise_index = curr_prog !== null ? Number(curr_prog) : 0;
 }
 
 function _resetAreas() {
@@ -141,17 +54,6 @@ function _disableButtonNext() {
     next_exercise_btn.setAttribute("disabled", "");
   } else {
     next_exercise_btn.removeAttribute("disabled");
-  }
-}
-
-function _loadExercise() {
-  current_exercise = exercises[current_exercise_index].split('\n');
-  line_generator = _lineGenerator(current_exercise);
-}
-
-function* _lineGenerator(exercise) {
-  for (const line of exercise) {
-    yield line; // returns one exercise line at a time
   }
 }
 
@@ -175,14 +77,43 @@ function _showNextLine() {
     if (_isSolution()) {
       _showNextLine();
     }
-    _showWords();
+    _shuffleWords();
   } else { // there are no more lines in the exercise, so we can go to the next one
-    _incrementMAxProgress()
+    _incrementMaxProgress()
     next_exercise_btn.removeAttribute("disabled");
   }
 }
 
-function _incrementMAxProgress() {
+function _changeCurrentExercise(exercise_no) {
+  if (exercise_no < 0) {
+    exercise_no = 0;
+  }
+
+  if (exercise_no > max_progress) {
+    exercise_no = max_progress
+  }
+  current_exercise_index = exercise_no;
+  localStorage.setItem(CURRENT_PROGRESS, current_exercise_index);
+}
+
+function _loadExercise() {
+  current_exercise = exercises[current_exercise_index].split('\n');
+  line_generator   = _lineGenerator(current_exercise);
+
+  navigation_area.childNodes.forEach(node => {
+    if (node.innerText === current_exercise[0]) {
+      node.style = "";
+    }
+  })
+}
+
+function* _lineGenerator(exercise) {
+  for (const line of exercise) {
+    yield line; // returns one exercise line at a time
+  }
+}
+
+function _incrementMaxProgress() {
   max_progress += 1;
   localStorage.setItem(MAX_PROGRESS, max_progress);
 }
@@ -199,7 +130,7 @@ function _setCommentArea() {
   comment_area.innerText = comment_area.innerText + current_line.comment + "\n";
 }
 
-function _showWords() {
+function _shuffleWords() {
   word_list_area.innerHTML = '';
 
   if (current_line !== undefined) {
